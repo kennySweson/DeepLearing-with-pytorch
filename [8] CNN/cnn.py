@@ -36,7 +36,7 @@ def trian(num_epoch):
     X, Y = generate()
     net = get_net()
     loss = nn.MSELoss()
-    trainer = torch.optim.SGD(net.parameters(), lr = 0.2)
+    trainer = torch.optim.SGD(net.parameters(), lr = 0.1)
 
     for i in range(num_epoch):
         l = loss(net(X), Y)
@@ -46,11 +46,10 @@ def trian(num_epoch):
         
         print(f'epoch{i+1}, loss{l}')
 
-
 if __name__=="__main__":
     warnings.filterwarnings('ignore')
     time_start = time.time()
-    trian(15)
+    trian(50)
     time_end = time.time()
     print(f'time cost{time_end - time_start}')
     # print( platform.platform())
